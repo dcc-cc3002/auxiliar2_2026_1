@@ -13,16 +13,7 @@ import scala.collection.mutable.ArrayBuffer
  * @param name the name of the army.
  */
 class Army(val name: String) {
-  private var soldiers: ArrayBuffer[Soldier] = new ArrayBuffer[Soldier]
-
-  /**
-   * Returns the current list of soldiers in the army.
-   *
-   * @return the mutable buffer containing all active soldiers.
-   */
-  def getSoldiers: ArrayBuffer[Soldier] = {
-    soldiers
-  }
+  private val soldiers: ArrayBuffer[Soldier] = new ArrayBuffer[Soldier]
 
   /**
    * Adds a soldier to the army roster.
@@ -54,7 +45,7 @@ class Army(val name: String) {
    * If the army has no soldiers, displays "(vacío)" instead.
    */
   def showRoster(): Unit = {
-    val names = this.getSoldiers.map(_.name).mkString(", ")
+    val names = this.soldiers.map(_.name).mkString(", ")
     println(s"Integrantes de ${this.name}: [${if (names.nonEmpty) names else "(vacío)"}]")
   }
 }
